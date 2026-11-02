@@ -22,13 +22,13 @@ Both editors can rewrite panel prompts and dialogue with a text model wired to `
 Two workflows in `example_workflows`, one per character reference method:
 
 - **Anima-Komikku-SnapRef.json**: SnapRef (snapref_v2a_pre2). Pick the character picture inside the SnapRef node. Mode *Character* keeps the character and leaves the drawing style to the model and the artists. Faster.
-- **Anima-Komikku-CharRef.json**: Anima Ref Adapter (anima_ref_adapter_v2_r64). Load the character picture in Character reference. Keeps the character closer, but also brings the picture's drawing style, so artist styles show less.
+- **Anima-Komikku-CharRef.json**: Anima Ref Adapter (anima_ref_adapter_v2_r64), up to two characters. Load them in Character 1 (left) and Character 2 (right); Image Stitch puts them side by side. Each panel prompt names who is in it by a few appearance words: `2girls, the girl on the left is ..., the girl on the right is ...`, or `1girl, solo, the girl with ...`. Bypass Image Stitch for a one-character page. Keeps the characters closer, but also brings the pictures' drawing style, so artist styles show less.
 
-Both use the same chain: Anima model (the examples use an Anima manga finetune; any Anima model works), Qwen3 0.6B text encoder, Qwen-Image VAE → Page & Panels → Anima Artist Pack → Anima Artist Adapter Mixer → KSampler (er_sde, 30 steps, cfg 4.5) → VAE Decode → Page Compose.
+Both use the same chain: Anima model (the examples use an Anima manga finetune; any Anima model works), Qwen3 0.6B text encoder, Qwen-Image VAE → Power Lora Loader ([rgthree](https://github.com/rgthree/rgthree-comfy), empty by default) → Page & Panels → Anima Artist Pack → Anima Artist Adapter Mixer → KSampler (er_sde, 30 steps, cfg 4.5) → VAE Decode → Page Compose.
 
 With an empty `artist_chain` the Artist Pack only encodes the prompt, so the same chain works with artist tags written in `style` instead.
 
-Panel prompts are Danbooru tags: people count, framing, then pose, place and light. Do not name the character or describe hair and outfit; the reference does that. For two characters, stitch both pictures side by side and say who is on the left and right.
+Panel prompts are Danbooru tags: people count, framing, then pose, place and light. Do not name the character; with one character, do not describe hair and outfit either, the reference does that.
 
 ## License
 

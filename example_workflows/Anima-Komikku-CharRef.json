@@ -1,8 +1,8 @@
 {
-  "id": "f5414dc7-e91d-465f-bd32-0b6b25f03488",
+  "id": "bac6c4eb-ee9e-4d1d-81ff-e1388e4f4067",
   "revision": 0,
   "last_node_id": 19,
-  "last_link_id": 19,
+  "last_link_id": 23,
   "nodes": [
     {
       "id": 1,
@@ -44,7 +44,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            1
+            6
           ]
         }
       ],
@@ -110,8 +110,7 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            4,
-            8
+            7
           ]
         }
       ],
@@ -134,7 +133,7 @@
       "type": "VAELoader",
       "pos": [
         0,
-        428
+        636
       ],
       "size": [
         330,
@@ -161,7 +160,7 @@
           "type": "VAE",
           "links": [
             2,
-            16
+            20
           ]
         }
       ],
@@ -215,7 +214,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            3
+            4
           ]
         },
         {
@@ -225,7 +224,7 @@
           "links": null
         }
       ],
-      "title": "Character reference",
+      "title": "Character 1 (left)",
       "properties": {
         "Node name for S&R": "LoadImage"
       },
@@ -242,15 +241,15 @@
       "id": 6,
       "type": "AnimaRefAdapter",
       "pos": [
-        420,
-        530
+        830,
+        300
       ],
       "size": [
         340,
         218
       ],
       "flags": {},
-      "order": 7,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -335,7 +334,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            6
+            10
           ]
         }
       ],
@@ -360,10 +359,234 @@
       }
     },
     {
+      "id": 7,
+      "type": "LoadImage",
+      "pos": [
+        420,
+        530
+      ],
+      "size": [
+        320,
+        380
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image",
+          "name": "image",
+          "type": "COMBO",
+          "widget": {
+            "name": "image"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "choose file to upload",
+          "name": "upload",
+          "type": "IMAGEUPLOAD",
+          "widget": {
+            "name": "upload"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "localized_name": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "title": "Character 2 (right)",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "komikku_example_character_2.png",
+        "image"
+      ],
+      "widgets_values_named": {
+        "image": "komikku_example_character_2.png",
+        "upload": "image"
+      }
+    },
+    {
+      "id": 8,
+      "type": "ImageStitch",
+      "pos": [
+        830,
+        60
+      ],
+      "size": [
+        270,
+        150
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "localized_name": "image1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "localized_name": "image2",
+          "name": "image2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "localized_name": "direction",
+          "name": "direction",
+          "type": "COMBO",
+          "widget": {
+            "name": "direction"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "match_image_size",
+          "name": "match_image_size",
+          "type": "BOOLEAN",
+          "widget": {
+            "name": "match_image_size"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "spacing_width",
+          "name": "spacing_width",
+          "type": "INT",
+          "widget": {
+            "name": "spacing_width"
+          },
+          "link": null
+        },
+        {
+          "localized_name": "spacing_color",
+          "name": "spacing_color",
+          "type": "COMBO",
+          "widget": {
+            "name": "spacing_color"
+          },
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "localized_name": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageStitch"
+      },
+      "widgets_values": [
+        "right",
+        true,
+        0,
+        "white"
+      ],
+      "widgets_values_named": {
+        "direction": "right",
+        "match_image_size": true,
+        "spacing_width": 0,
+        "spacing_color": "white"
+      }
+    },
+    {
+      "id": 9,
+      "type": "Power Lora Loader (rgthree)",
+      "pos": [
+        0,
+        428
+      ],
+      "size": [
+        330,
+        118
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "dir": 3,
+          "name": "model",
+          "type": "MODEL",
+          "link": 6
+        },
+        {
+          "dir": 3,
+          "name": "clip",
+          "type": "CLIP",
+          "link": 7
+        }
+      ],
+      "outputs": [
+        {
+          "dir": 4,
+          "name": "MODEL",
+          "shape": 3,
+          "type": "MODEL",
+          "links": [
+            1
+          ]
+        },
+        {
+          "dir": 4,
+          "name": "CLIP",
+          "shape": 3,
+          "type": "CLIP",
+          "links": [
+            8,
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Show Strengths": "Single Strength",
+        "Match": ""
+      },
+      "widgets_values": [
+        {},
+        {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        {},
+        ""
+      ],
+      "widgets_values_named": {
+        "divider": {},
+        "PowerLoraLoaderHeaderWidget": {
+          "type": "PowerLoraLoaderHeaderWidget"
+        },
+        "divider#2": {},
+        "➕ Add Lora": ""
+      }
+    },
+    {
       "id": 10,
       "type": "AnimaKomikkuPageLayout",
       "pos": [
-        850,
+        1260,
         60
       ],
       "size": [
@@ -371,7 +594,7 @@
         640
       ],
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -425,7 +648,7 @@
           "shape": 6,
           "type": "STRING",
           "links": [
-            5
+            9
           ]
         },
         {
@@ -434,7 +657,7 @@
           "shape": 6,
           "type": "INT",
           "links": [
-            9
+            13
           ]
         },
         {
@@ -443,7 +666,7 @@
           "shape": 6,
           "type": "INT",
           "links": [
-            10
+            14
           ]
         },
         {
@@ -451,7 +674,7 @@
           "name": "layout",
           "type": "ANIMA_KOMIKKU_PAGE_LAYOUT",
           "links": [
-            18
+            22
           ]
         }
       ],
@@ -459,13 +682,13 @@
         "Node name for S&R": "AnimaKomikkuPageLayout"
       },
       "widgets_values": [
-        "{\"page\":{\"name\":\"Manga B5\",\"width\":182,\"height\":257},\"margin\":10,\"gutter\":4,\"direction\":\"rtl\",\"preset\":\"manga-5\",\"panels\":[{\"x\":0.054945054945054944,\"y\":0.038910505836575876,\"w\":0.8901098901098901,\"h\":0.3341439688715953,\"prompt\":\"1girl, solo, wide shot, full body, walking, city street, night, rain, neon lights, puddles, hands in pockets\"},{\"x\":0.5833333333333334,\"y\":0.3886186770428015,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, upper body, looking back, surprised, open mouth, rain, night\"},{\"x\":0.054945054945054944,\"y\":0.3886186770428015,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, close-up, face, serious, determined, glaring, rain, wet hair, dramatic lighting\"},{\"x\":0.43864468864468864,\"y\":0.682636186770428,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, cowboy shot, from below, standing on rooftop edge, wind, rain, night, city lights\"},{\"x\":0.054945054945054944,\"y\":0.682636186770428,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, full body, running, dynamic pose, motion lines, splashing, rain, night, street\"}]}",
+        "{\"page\":{\"name\":\"Manga B5\",\"width\":182,\"height\":257},\"margin\":10,\"gutter\":4,\"direction\":\"rtl\",\"preset\":\"manga-5\",\"panels\":[{\"x\":0.054945054945054944,\"y\":0.038910505836575876,\"w\":0.8901098901098901,\"h\":0.3341439688715953,\"prompt\":\"2girls, the girl on the left is a girl with brown twintails in a yellow jacket, the girl on the right is a tall woman with silver hair in a miko outfit, standing face to face, wide shot, full body, city street, night, rain\"},{\"x\":0.5833333333333334,\"y\":0.3886186770428015,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, the girl with brown twintails in a yellow jacket, upper body, looking back, surprised, open mouth, rain, night\"},{\"x\":0.054945054945054944,\"y\":0.3886186770428015,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, the tall woman with silver hair in a miko outfit, close-up, calm smile, holding umbrella, rain, night\"},{\"x\":0.43864468864468864,\"y\":0.682636186770428,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"2girls, the girl on the left is a girl with brown twintails in a yellow jacket, the girl on the right is a tall woman with silver hair in a miko outfit, sharing an umbrella, cowboy shot, from side, rain, night, street lights\"},{\"x\":0.054945054945054944,\"y\":0.682636186770428,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, the girl with brown twintails in a yellow jacket, full body, running, dynamic pose, motion lines, splashing, rain, night, street\"}]}",
         "masterpiece, best quality, score_7, safe, monochrome, greyscale, manga, screentone",
         "",
         1
       ],
       "widgets_values_named": {
-        "layout": "{\"page\":{\"name\":\"Manga B5\",\"width\":182,\"height\":257},\"margin\":10,\"gutter\":4,\"direction\":\"rtl\",\"preset\":\"manga-5\",\"panels\":[{\"x\":0.054945054945054944,\"y\":0.038910505836575876,\"w\":0.8901098901098901,\"h\":0.3341439688715953,\"prompt\":\"1girl, solo, wide shot, full body, walking, city street, night, rain, neon lights, puddles, hands in pockets\"},{\"x\":0.5833333333333334,\"y\":0.3886186770428015,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, upper body, looking back, surprised, open mouth, rain, night\"},{\"x\":0.054945054945054944,\"y\":0.3886186770428015,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, close-up, face, serious, determined, glaring, rain, wet hair, dramatic lighting\"},{\"x\":0.43864468864468864,\"y\":0.682636186770428,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, cowboy shot, from below, standing on rooftop edge, wind, rain, night, city lights\"},{\"x\":0.054945054945054944,\"y\":0.682636186770428,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, full body, running, dynamic pose, motion lines, splashing, rain, night, street\"}]}",
+        "layout": "{\"page\":{\"name\":\"Manga B5\",\"width\":182,\"height\":257},\"margin\":10,\"gutter\":4,\"direction\":\"rtl\",\"preset\":\"manga-5\",\"panels\":[{\"x\":0.054945054945054944,\"y\":0.038910505836575876,\"w\":0.8901098901098901,\"h\":0.3341439688715953,\"prompt\":\"2girls, the girl on the left is a girl with brown twintails in a yellow jacket, the girl on the right is a tall woman with silver hair in a miko outfit, standing face to face, wide shot, full body, city street, night, rain\"},{\"x\":0.5833333333333334,\"y\":0.3886186770428015,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, the girl with brown twintails in a yellow jacket, upper body, looking back, surprised, open mouth, rain, night\"},{\"x\":0.054945054945054944,\"y\":0.3886186770428015,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, the tall woman with silver hair in a miko outfit, close-up, calm smile, holding umbrella, rain, night\"},{\"x\":0.43864468864468864,\"y\":0.682636186770428,\"w\":0.5064102564102564,\"h\":0.2784533073929961,\"prompt\":\"2girls, the girl on the left is a girl with brown twintails in a yellow jacket, the girl on the right is a tall woman with silver hair in a miko outfit, sharing an umbrella, cowboy shot, from side, rain, night, street lights\"},{\"x\":0.054945054945054944,\"y\":0.682636186770428,\"w\":0.3617216117216117,\"h\":0.2784533073929961,\"prompt\":\"1girl, solo, the girl with brown twintails in a yellow jacket, full body, running, dynamic pose, motion lines, splashing, rain, night, street\"}]}",
         "quality": "masterpiece, best quality, score_7, safe, monochrome, greyscale, manga, screentone",
         "style": "",
         "panel_megapixels": 1
@@ -475,7 +698,7 @@
       "id": 11,
       "type": "AnimaArtistPack",
       "pos": [
-        1940,
+        2350,
         60
       ],
       "size": [
@@ -483,14 +706,14 @@
         142
       ],
       "flags": {},
-      "order": 8,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 4
+          "link": 8
         },
         {
           "localized_name": "artist_chain",
@@ -509,7 +732,7 @@
           "widget": {
             "name": "base_prompt"
           },
-          "link": 5
+          "link": 9
         }
       ],
       "outputs": [
@@ -518,7 +741,7 @@
           "name": "artist_pack",
           "type": "ANIMA_PACK",
           "links": [
-            7
+            11
           ]
         }
       ],
@@ -538,7 +761,7 @@
       "id": 12,
       "type": "AnimaArtistAdapterMixer",
       "pos": [
-        1940,
+        2350,
         292
       ],
       "size": [
@@ -546,20 +769,20 @@
         218
       ],
       "flags": {},
-      "order": 10,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "model",
           "name": "model",
           "type": "MODEL",
-          "link": 6
+          "link": 10
         },
         {
           "localized_name": "artist_pack",
           "name": "artist_pack",
           "type": "ANIMA_PACK",
-          "link": 7
+          "link": 11
         },
         {
           "localized_name": "advanced_options",
@@ -629,7 +852,7 @@
           "name": "model",
           "type": "MODEL",
           "links": [
-            11
+            15
           ]
         },
         {
@@ -637,7 +860,7 @@
           "name": "base_prompt",
           "type": "CONDITIONING",
           "links": [
-            12
+            16
           ]
         }
       ],
@@ -665,7 +888,7 @@
       "id": 13,
       "type": "CLIPTextEncode",
       "pos": [
-        1410,
+        1820,
         60
       ],
       "size": [
@@ -673,14 +896,14 @@
         88
       ],
       "flags": {},
-      "order": 6,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 8
+          "link": 12
         },
         {
           "localized_name": "text",
@@ -698,7 +921,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            13
+            17
           ]
         }
       ],
@@ -717,7 +940,7 @@
       "id": 14,
       "type": "EmptySD3LatentImage",
       "pos": [
-        1410,
+        1820,
         238
       ],
       "size": [
@@ -735,7 +958,7 @@
           "widget": {
             "name": "width"
           },
-          "link": 9
+          "link": 13
         },
         {
           "localized_name": "height",
@@ -744,7 +967,7 @@
           "widget": {
             "name": "height"
           },
-          "link": 10
+          "link": 14
         },
         {
           "localized_name": "batch_size",
@@ -762,7 +985,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            14
+            18
           ]
         }
       ],
@@ -784,7 +1007,7 @@
       "id": 15,
       "type": "KSampler",
       "pos": [
-        2390,
+        2800,
         60
       ],
       "size": [
@@ -792,32 +1015,32 @@
         262
       ],
       "flags": {},
-      "order": 11,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "model",
           "name": "model",
           "type": "MODEL",
-          "link": 11
+          "link": 15
         },
         {
           "localized_name": "positive",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 12
+          "link": 16
         },
         {
           "localized_name": "negative",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 13
+          "link": 17
         },
         {
           "localized_name": "latent_image",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 14
+          "link": 18
         },
         {
           "localized_name": "seed",
@@ -880,7 +1103,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            15
+            19
           ]
         }
       ],
@@ -910,7 +1133,7 @@
       "id": 16,
       "type": "VAEDecode",
       "pos": [
-        2390,
+        2800,
         412
       ],
       "size": [
@@ -918,20 +1141,20 @@
         46
       ],
       "flags": {},
-      "order": 12,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "samples",
           "name": "samples",
           "type": "LATENT",
-          "link": 15
+          "link": 19
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 16
+          "link": 20
         }
       ],
       "outputs": [
@@ -940,7 +1163,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            17
+            21
           ]
         }
       ],
@@ -952,7 +1175,7 @@
       "id": 17,
       "type": "AnimaKomikkuPageCompose",
       "pos": [
-        2800,
+        3210,
         60
       ],
       "size": [
@@ -960,20 +1183,20 @@
         560
       ],
       "flags": {},
-      "order": 13,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "panels",
           "name": "panels",
           "type": "IMAGE",
-          "link": 17
+          "link": 21
         },
         {
           "localized_name": "layout",
           "name": "layout",
           "type": "ANIMA_KOMIKKU_PAGE_LAYOUT",
-          "link": 18
+          "link": 22
         },
         {
           "localized_name": "assist_clip",
@@ -1016,7 +1239,7 @@
           "name": "page",
           "type": "IMAGE",
           "links": [
-            19
+            23
           ]
         }
       ],
@@ -1038,7 +1261,7 @@
       "id": 18,
       "type": "SaveImage",
       "pos": [
-        2800,
+        3210,
         710
       ],
       "size": [
@@ -1046,14 +1269,14 @@
         520
       ],
       "flags": {},
-      "order": 14,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "images",
           "name": "images",
           "type": "IMAGE",
-          "link": 19
+          "link": 23
         },
         {
           "localized_name": "filename_prefix",
@@ -1093,16 +1316,16 @@
         760
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [],
       "outputs": [],
       "properties": {},
       "widgets_values": [
-        "## Anima Komikku · Char Ref (Anima Ref Adapter)\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity: Anima Ref Adapter** (anima_ref_adapter_v2_r64). Load the character picture in Character reference. It keeps the character close but also brings the picture's drawing style; ref_guidance above 1 costs one extra model call per step.\n\nTwo characters: stitch both pictures side by side and write who is on the left and right in the panel prompt.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character or describe hair/outfit; the reference does that.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5."
+        "## Anima Komikku · Char Ref (Anima Ref Adapter)\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity: Anima Ref Adapter** (anima_ref_adapter_v2_r64), up to two characters. Load them in Character 1 (left) and Character 2 (right); Image Stitch puts them side by side. In each panel prompt, name who is there by a few appearance words: `2girls, the girl on the left is ..., the girl on the right is ...` for both, or `1girl, solo, the girl with ...` for one. For a one-character page, bypass Image Stitch (Ctrl+B). The adapter keeps the characters close but also brings the pictures' drawing style; ref_guidance above 1 costs one extra model call per step.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character; a few appearance words only to tell the two characters apart.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5. Add Anima LoRAs in the **Power Lora Loader**; style LoRAs add to the artist style."
       ],
       "widgets_values_named": {
-        "text": "## Anima Komikku · Char Ref (Anima Ref Adapter)\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity: Anima Ref Adapter** (anima_ref_adapter_v2_r64). Load the character picture in Character reference. It keeps the character close but also brings the picture's drawing style; ref_guidance above 1 costs one extra model call per step.\n\nTwo characters: stitch both pictures side by side and write who is on the left and right in the panel prompt.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character or describe hair/outfit; the reference does that.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5."
+        "text": "## Anima Komikku · Char Ref (Anima Ref Adapter)\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity: Anima Ref Adapter** (anima_ref_adapter_v2_r64), up to two characters. Load them in Character 1 (left) and Character 2 (right); Image Stitch puts them side by side. In each panel prompt, name who is there by a few appearance words: `2girls, the girl on the left is ..., the girl on the right is ...` for both, or `1girl, solo, the girl with ...` for one. For a one-character page, bypass Image Stitch (Ctrl+B). The adapter keeps the characters close but also brings the pictures' drawing style; ref_guidance above 1 costs one extra model call per step.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character; a few appearance words only to tell the two characters apart.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5. Add Anima LoRAs in the **Power Lora Loader**; style LoRAs add to the artist style."
       },
       "color": "#432",
       "bgcolor": "#653"
@@ -1111,7 +1334,7 @@
   "links": [
     [
       1,
-      1,
+      9,
       0,
       6,
       0,
@@ -1127,7 +1350,7 @@
     ],
     [
       3,
-      4,
+      8,
       0,
       6,
       2,
@@ -1135,14 +1358,46 @@
     ],
     [
       4,
+      4,
+      0,
+      8,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      7,
+      0,
+      8,
+      1,
+      "IMAGE"
+    ],
+    [
+      6,
+      1,
+      0,
+      9,
+      0,
+      "MODEL"
+    ],
+    [
+      7,
       2,
       0,
+      9,
+      1,
+      "CLIP"
+    ],
+    [
+      8,
+      9,
+      1,
       11,
       0,
       "CLIP"
     ],
     [
-      5,
+      9,
       10,
       0,
       11,
@@ -1150,7 +1405,7 @@
       "STRING"
     ],
     [
-      6,
+      10,
       6,
       0,
       12,
@@ -1158,7 +1413,7 @@
       "MODEL"
     ],
     [
-      7,
+      11,
       11,
       0,
       12,
@@ -1166,15 +1421,15 @@
       "ANIMA_PACK"
     ],
     [
-      8,
-      2,
-      0,
+      12,
+      9,
+      1,
       13,
       0,
       "CLIP"
     ],
     [
-      9,
+      13,
       10,
       1,
       14,
@@ -1182,7 +1437,7 @@
       "INT"
     ],
     [
-      10,
+      14,
       10,
       2,
       14,
@@ -1190,7 +1445,7 @@
       "INT"
     ],
     [
-      11,
+      15,
       12,
       0,
       15,
@@ -1198,7 +1453,7 @@
       "MODEL"
     ],
     [
-      12,
+      16,
       12,
       1,
       15,
@@ -1206,7 +1461,7 @@
       "CONDITIONING"
     ],
     [
-      13,
+      17,
       13,
       0,
       15,
@@ -1214,7 +1469,7 @@
       "CONDITIONING"
     ],
     [
-      14,
+      18,
       14,
       0,
       15,
@@ -1222,7 +1477,7 @@
       "LATENT"
     ],
     [
-      15,
+      19,
       15,
       0,
       16,
@@ -1230,7 +1485,7 @@
       "LATENT"
     ],
     [
-      16,
+      20,
       3,
       0,
       16,
@@ -1238,7 +1493,7 @@
       "VAE"
     ],
     [
-      17,
+      21,
       16,
       0,
       17,
@@ -1246,7 +1501,7 @@
       "IMAGE"
     ],
     [
-      18,
+      22,
       10,
       3,
       17,
@@ -1254,7 +1509,7 @@
       "ANIMA_KOMIKKU_PAGE_LAYOUT"
     ],
     [
-      19,
+      23,
       17,
       0,
       18,
@@ -1265,12 +1520,12 @@
   "groups": [
     {
       "id": "#335",
-      "title": "Models",
+      "title": "Models & LoRAs",
       "bounding": [
         -20,
         0,
         370,
-        506
+        714
       ],
       "color": "#3f789e",
       "flags": {}
@@ -1281,8 +1536,8 @@
       "bounding": [
         400,
         0,
-        380,
-        768
+        790,
+        930
       ],
       "color": "#3f789e",
       "flags": {}
@@ -1291,7 +1546,7 @@
       "id": "#3f789e",
       "title": "Page & panel prompts",
       "bounding": [
-        830,
+        1240,
         0,
         1040,
         720
@@ -1303,7 +1558,7 @@
       "id": "#b58b2a",
       "title": "Global style: Artist Mixer",
       "bounding": [
-        1920,
+        2330,
         0,
         400,
         530
@@ -1315,7 +1570,7 @@
       "id": "#8A8",
       "title": "Render panels",
       "bounding": [
-        2370,
+        2780,
         0,
         360,
         478
@@ -1327,7 +1582,7 @@
       "id": "#a54",
       "title": "Page compose & lettering",
       "bounding": [
-        2780,
+        3190,
         0,
         560,
         1250
