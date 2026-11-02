@@ -19,11 +19,12 @@ Both editors can rewrite panel prompts and dialogue with a text model wired to `
 
 ## Workflow
 
-`example_workflows/Anima-Komikku.json`:
+Two workflows in `example_workflows`, one per character reference method:
 
-1. Anima model, Qwen3 0.6B text encoder, Qwen-Image VAE. The example uses an Anima manga finetune; any Anima model works.
-2. Character reference: **SnapRef** (mode *Character*), or **Anima Ref Adapter** (bypassed by default; Ctrl+B to swap). Pick your character picture in both Character reference and SnapRef. The Ref Adapter keeps the character closer but also brings the reference's drawing style; SnapRef in *Character* mode leaves the style to the model and the artists and is faster.
-3. Page & Panels → Anima Artist Pack → Anima Artist Adapter Mixer → KSampler (er_sde, 30 steps, cfg 4.5) → VAE Decode → Page Compose.
+- **Anima-Komikku-SnapRef.json**: SnapRef (snapref_v2a_pre2). Pick the character picture inside the SnapRef node. Mode *Character* keeps the character and leaves the drawing style to the model and the artists. Faster.
+- **Anima-Komikku-CharRef.json**: Anima Ref Adapter (anima_ref_adapter_v2_r64). Load the character picture in Character reference. Keeps the character closer, but also brings the picture's drawing style, so artist styles show less.
+
+Both use the same chain: Anima model (the examples use an Anima manga finetune; any Anima model works), Qwen3 0.6B text encoder, Qwen-Image VAE → Page & Panels → Anima Artist Pack → Anima Artist Adapter Mixer → KSampler (er_sde, 30 steps, cfg 4.5) → VAE Decode → Page Compose.
 
 With an empty `artist_chain` the Artist Pack only encodes the prompt, so the same chain works with artist tags written in `style` instead.
 

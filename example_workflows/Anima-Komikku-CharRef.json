@@ -1,8 +1,8 @@
 {
-  "id": "101a6f3a-17c5-4b98-85ac-909594c86d4a",
+  "id": "f5414dc7-e91d-465f-bd32-0b6b25f03488",
   "revision": 0,
   "last_node_id": 19,
-  "last_link_id": 22,
+  "last_link_id": 19,
   "nodes": [
     {
       "id": 1,
@@ -110,9 +110,8 @@
           "name": "CLIP",
           "type": "CLIP",
           "links": [
-            2,
-            7,
-            11
+            4,
+            8
           ]
         }
       ],
@@ -161,9 +160,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            3,
-            5,
-            19
+            2,
+            16
           ]
         }
       ],
@@ -217,7 +215,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            6
+            3
           ]
         },
         {
@@ -241,15 +239,15 @@
       }
     },
     {
-      "id": 5,
-      "type": "SnapRefSimple",
+      "id": 6,
+      "type": "AnimaRefAdapter",
       "pos": [
-        780,
-        60
+        420,
+        530
       ],
       "size": [
         340,
-        482
+        218
       ],
       "flags": {},
       "order": 7,
@@ -262,160 +260,16 @@
           "link": 1
         },
         {
-          "localized_name": "clip",
-          "name": "clip",
-          "type": "CLIP",
+          "localized_name": "vae",
+          "name": "vae",
+          "type": "VAE",
           "link": 2
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 3
-        },
-        {
-          "localized_name": "adapter",
-          "name": "adapter",
-          "type": "COMBO",
-          "widget": {
-            "name": "adapter"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "reference",
-          "name": "reference",
-          "type": "COMBO",
-          "widget": {
-            "name": "reference"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "mode",
-          "name": "mode",
-          "type": "COMBO",
-          "widget": {
-            "name": "mode"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "strength",
-          "name": "strength",
-          "type": "FLOAT",
-          "widget": {
-            "name": "strength"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "fidelity",
-          "name": "fidelity",
-          "type": "FLOAT",
-          "widget": {
-            "name": "fidelity"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "reference_2",
-          "name": "reference_2",
-          "shape": 7,
-          "type": "COMBO",
-          "widget": {
-            "name": "reference_2"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "strength_2",
-          "name": "strength_2",
-          "shape": 7,
-          "type": "FLOAT",
-          "widget": {
-            "name": "strength_2"
-          },
-          "link": null
-        },
-        {
-          "localized_name": "upload",
-          "name": "upload",
-          "type": "IMAGEUPLOAD",
-          "widget": {
-            "name": "upload"
-          },
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "localized_name": "MODEL",
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            4
-          ]
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "SnapRefSimple"
-      },
-      "widgets_values": [
-        "snapref_v2a_pre2.safetensors",
-        "komikku_example_character.png",
-        "Character",
-        1,
-        1,
-        "none",
-        1,
-        "image",
-        ""
-      ],
-      "widgets_values_named": {
-        "adapter": "snapref_v2a_pre2.safetensors",
-        "reference": "komikku_example_character.png",
-        "mode": "Character",
-        "strength": 1,
-        "fidelity": 1,
-        "reference_2": "none",
-        "strength_2": 1,
-        "upload": "image",
-        "snapref_panel": ""
-      }
-    },
-    {
-      "id": 6,
-      "type": "AnimaRefAdapter",
-      "pos": [
-        780,
-        632
-      ],
-      "size": [
-        340,
-        218
-      ],
-      "flags": {},
-      "order": 10,
-      "mode": 4,
-      "inputs": [
-        {
-          "localized_name": "model",
-          "name": "model",
-          "type": "MODEL",
-          "link": 4
-        },
-        {
-          "localized_name": "vae",
-          "name": "vae",
-          "type": "VAE",
-          "link": 5
         },
         {
           "localized_name": "image",
           "name": "image",
           "type": "IMAGE",
-          "link": 6
+          "link": 3
         },
         {
           "localized_name": "lora_name",
@@ -481,7 +335,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            9
+            6
           ]
         }
       ],
@@ -509,7 +363,7 @@
       "id": 10,
       "type": "AnimaKomikkuPageLayout",
       "pos": [
-        1210,
+        850,
         60
       ],
       "size": [
@@ -571,7 +425,7 @@
           "shape": 6,
           "type": "STRING",
           "links": [
-            8
+            5
           ]
         },
         {
@@ -580,7 +434,7 @@
           "shape": 6,
           "type": "INT",
           "links": [
-            12
+            9
           ]
         },
         {
@@ -589,7 +443,7 @@
           "shape": 6,
           "type": "INT",
           "links": [
-            13
+            10
           ]
         },
         {
@@ -597,7 +451,7 @@
           "name": "layout",
           "type": "ANIMA_KOMIKKU_PAGE_LAYOUT",
           "links": [
-            21
+            18
           ]
         }
       ],
@@ -621,7 +475,7 @@
       "id": 11,
       "type": "AnimaArtistPack",
       "pos": [
-        2300,
+        1940,
         60
       ],
       "size": [
@@ -636,7 +490,7 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 7
+          "link": 4
         },
         {
           "localized_name": "artist_chain",
@@ -655,7 +509,7 @@
           "widget": {
             "name": "base_prompt"
           },
-          "link": 8
+          "link": 5
         }
       ],
       "outputs": [
@@ -664,7 +518,7 @@
           "name": "artist_pack",
           "type": "ANIMA_PACK",
           "links": [
-            10
+            7
           ]
         }
       ],
@@ -684,7 +538,7 @@
       "id": 12,
       "type": "AnimaArtistAdapterMixer",
       "pos": [
-        2300,
+        1940,
         292
       ],
       "size": [
@@ -692,20 +546,20 @@
         218
       ],
       "flags": {},
-      "order": 11,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "model",
           "name": "model",
           "type": "MODEL",
-          "link": 9
+          "link": 6
         },
         {
           "localized_name": "artist_pack",
           "name": "artist_pack",
           "type": "ANIMA_PACK",
-          "link": 10
+          "link": 7
         },
         {
           "localized_name": "advanced_options",
@@ -775,7 +629,7 @@
           "name": "model",
           "type": "MODEL",
           "links": [
-            14
+            11
           ]
         },
         {
@@ -783,7 +637,7 @@
           "name": "base_prompt",
           "type": "CONDITIONING",
           "links": [
-            15
+            12
           ]
         }
       ],
@@ -811,7 +665,7 @@
       "id": 13,
       "type": "CLIPTextEncode",
       "pos": [
-        1770,
+        1410,
         60
       ],
       "size": [
@@ -826,7 +680,7 @@
           "localized_name": "clip",
           "name": "clip",
           "type": "CLIP",
-          "link": 11
+          "link": 8
         },
         {
           "localized_name": "text",
@@ -844,7 +698,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            16
+            13
           ]
         }
       ],
@@ -863,7 +717,7 @@
       "id": 14,
       "type": "EmptySD3LatentImage",
       "pos": [
-        1770,
+        1410,
         238
       ],
       "size": [
@@ -881,7 +735,7 @@
           "widget": {
             "name": "width"
           },
-          "link": 12
+          "link": 9
         },
         {
           "localized_name": "height",
@@ -890,7 +744,7 @@
           "widget": {
             "name": "height"
           },
-          "link": 13
+          "link": 10
         },
         {
           "localized_name": "batch_size",
@@ -908,7 +762,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            17
+            14
           ]
         }
       ],
@@ -930,7 +784,7 @@
       "id": 15,
       "type": "KSampler",
       "pos": [
-        2750,
+        2390,
         60
       ],
       "size": [
@@ -938,32 +792,32 @@
         262
       ],
       "flags": {},
-      "order": 12,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "model",
           "name": "model",
           "type": "MODEL",
-          "link": 14
+          "link": 11
         },
         {
           "localized_name": "positive",
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 15
+          "link": 12
         },
         {
           "localized_name": "negative",
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 16
+          "link": 13
         },
         {
           "localized_name": "latent_image",
           "name": "latent_image",
           "type": "LATENT",
-          "link": 17
+          "link": 14
         },
         {
           "localized_name": "seed",
@@ -1026,7 +880,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            18
+            15
           ]
         }
       ],
@@ -1056,7 +910,7 @@
       "id": 16,
       "type": "VAEDecode",
       "pos": [
-        2750,
+        2390,
         412
       ],
       "size": [
@@ -1064,20 +918,20 @@
         46
       ],
       "flags": {},
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "samples",
           "name": "samples",
           "type": "LATENT",
-          "link": 18
+          "link": 15
         },
         {
           "localized_name": "vae",
           "name": "vae",
           "type": "VAE",
-          "link": 19
+          "link": 16
         }
       ],
       "outputs": [
@@ -1086,7 +940,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            20
+            17
           ]
         }
       ],
@@ -1098,7 +952,7 @@
       "id": 17,
       "type": "AnimaKomikkuPageCompose",
       "pos": [
-        3160,
+        2800,
         60
       ],
       "size": [
@@ -1106,20 +960,20 @@
         560
       ],
       "flags": {},
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "panels",
           "name": "panels",
           "type": "IMAGE",
-          "link": 20
+          "link": 17
         },
         {
           "localized_name": "layout",
           "name": "layout",
           "type": "ANIMA_KOMIKKU_PAGE_LAYOUT",
-          "link": 21
+          "link": 18
         },
         {
           "localized_name": "assist_clip",
@@ -1162,7 +1016,7 @@
           "name": "page",
           "type": "IMAGE",
           "links": [
-            22
+            19
           ]
         }
       ],
@@ -1184,7 +1038,7 @@
       "id": 18,
       "type": "SaveImage",
       "pos": [
-        3160,
+        2800,
         710
       ],
       "size": [
@@ -1192,14 +1046,14 @@
         520
       ],
       "flags": {},
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
           "localized_name": "images",
           "name": "images",
           "type": "IMAGE",
-          "link": 22
+          "link": 19
         },
         {
           "localized_name": "filename_prefix",
@@ -1245,10 +1099,10 @@
       "outputs": [],
       "properties": {},
       "widgets_values": [
-        "## Anima Komikku\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity** (pick one, bypass the other with Ctrl+B):\n- **SnapRef** (snapref_v2a_pre2): mode *Character* keeps the character and leaves the art style to the model and artist tags. Faster.\n- **Anima Ref Adapter** (anima_ref_adapter_v2_r64): keeps the character closer, but also brings the reference's drawing style. One extra model call per step at ref_guidance > 1.\n\nTwo characters: stitch both pictures side by side and write who is on the left and right in the panel prompt.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character or describe hair/outfit; the reference does that.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5."
+        "## Anima Komikku · Char Ref (Anima Ref Adapter)\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity: Anima Ref Adapter** (anima_ref_adapter_v2_r64). Load the character picture in Character reference. It keeps the character close but also brings the picture's drawing style; ref_guidance above 1 costs one extra model call per step.\n\nTwo characters: stitch both pictures side by side and write who is on the left and right in the panel prompt.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character or describe hair/outfit; the reference does that.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5."
       ],
       "widgets_values_named": {
-        "text": "## Anima Komikku\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity** (pick one, bypass the other with Ctrl+B):\n- **SnapRef** (snapref_v2a_pre2): mode *Character* keeps the character and leaves the art style to the model and artist tags. Faster.\n- **Anima Ref Adapter** (anima_ref_adapter_v2_r64): keeps the character closer, but also brings the reference's drawing style. One extra model call per step at ref_guidance > 1.\n\nTwo characters: stitch both pictures side by side and write who is on the left and right in the panel prompt.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character or describe hair/outfit; the reference does that.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5."
+        "text": "## Anima Komikku · Char Ref (Anima Ref Adapter)\n\nOne Anima prompt per manga panel. **Page & Panels** outputs a list of prompts and panel sizes, so the single sampler chain renders every panel in panel order; **Page Compose** frames and letters the page.\n\n**Character identity: Anima Ref Adapter** (anima_ref_adapter_v2_r64). Load the character picture in Character reference. It keeps the character close but also brings the picture's drawing style; ref_guidance above 1 costs one extra model call per step.\n\nTwo characters: stitch both pictures side by side and write who is on the left and right in the panel prompt.\n\n**Global style** (pick one):\n- **Anima Artist Mixer**: artists in *artist_chain*, mixed per artist without prompt interference.\n- **Style tags**: empty *artist_chain* and write the artist tags (e.g. @artist) in *style* on Page & Panels.\n\nPanel prompts are Danbooru tags: count (1girl, solo), framing (close-up, cowboy shot, wide shot, from below), then pose, place, light. Never name the character or describe hair/outfit; the reference does that.\n\nModel: **mangaVisionANIIL_animaV1** (Anima manga finetune), er_sde, 30 steps, cfg 4.5."
       },
       "color": "#432",
       "bgcolor": "#653"
@@ -1259,36 +1113,12 @@
       1,
       1,
       0,
-      5,
-      0,
-      "MODEL"
-    ],
-    [
-      2,
-      2,
-      0,
-      5,
-      1,
-      "CLIP"
-    ],
-    [
-      3,
-      3,
-      0,
-      5,
-      2,
-      "VAE"
-    ],
-    [
-      4,
-      5,
-      0,
       6,
       0,
       "MODEL"
     ],
     [
-      5,
+      2,
       3,
       0,
       6,
@@ -1296,7 +1126,7 @@
       "VAE"
     ],
     [
-      6,
+      3,
       4,
       0,
       6,
@@ -1304,7 +1134,7 @@
       "IMAGE"
     ],
     [
-      7,
+      4,
       2,
       0,
       11,
@@ -1312,7 +1142,7 @@
       "CLIP"
     ],
     [
-      8,
+      5,
       10,
       0,
       11,
@@ -1320,7 +1150,7 @@
       "STRING"
     ],
     [
-      9,
+      6,
       6,
       0,
       12,
@@ -1328,7 +1158,7 @@
       "MODEL"
     ],
     [
-      10,
+      7,
       11,
       0,
       12,
@@ -1336,7 +1166,7 @@
       "ANIMA_PACK"
     ],
     [
-      11,
+      8,
       2,
       0,
       13,
@@ -1344,7 +1174,7 @@
       "CLIP"
     ],
     [
-      12,
+      9,
       10,
       1,
       14,
@@ -1352,7 +1182,7 @@
       "INT"
     ],
     [
-      13,
+      10,
       10,
       2,
       14,
@@ -1360,7 +1190,7 @@
       "INT"
     ],
     [
-      14,
+      11,
       12,
       0,
       15,
@@ -1368,7 +1198,7 @@
       "MODEL"
     ],
     [
-      15,
+      12,
       12,
       1,
       15,
@@ -1376,7 +1206,7 @@
       "CONDITIONING"
     ],
     [
-      16,
+      13,
       13,
       0,
       15,
@@ -1384,7 +1214,7 @@
       "CONDITIONING"
     ],
     [
-      17,
+      14,
       14,
       0,
       15,
@@ -1392,7 +1222,7 @@
       "LATENT"
     ],
     [
-      18,
+      15,
       15,
       0,
       16,
@@ -1400,7 +1230,7 @@
       "LATENT"
     ],
     [
-      19,
+      16,
       3,
       0,
       16,
@@ -1408,7 +1238,7 @@
       "VAE"
     ],
     [
-      20,
+      17,
       16,
       0,
       17,
@@ -1416,7 +1246,7 @@
       "IMAGE"
     ],
     [
-      21,
+      18,
       10,
       3,
       17,
@@ -1424,7 +1254,7 @@
       "ANIMA_KOMIKKU_PAGE_LAYOUT"
     ],
     [
-      22,
+      19,
       17,
       0,
       18,
@@ -1447,12 +1277,12 @@
     },
     {
       "id": "#a1309b",
-      "title": "Character identity: SnapRef or Ref Adapter",
+      "title": "Character identity: Anima Ref Adapter",
       "bounding": [
         400,
         0,
-        740,
-        870
+        380,
+        768
       ],
       "color": "#3f789e",
       "flags": {}
@@ -1461,7 +1291,7 @@
       "id": "#3f789e",
       "title": "Page & panel prompts",
       "bounding": [
-        1190,
+        830,
         0,
         1040,
         720
@@ -1473,7 +1303,7 @@
       "id": "#b58b2a",
       "title": "Global style: Artist Mixer",
       "bounding": [
-        2280,
+        1920,
         0,
         400,
         530
@@ -1485,7 +1315,7 @@
       "id": "#8A8",
       "title": "Render panels",
       "bounding": [
-        2730,
+        2370,
         0,
         360,
         478
@@ -1497,7 +1327,7 @@
       "id": "#a54",
       "title": "Page compose & lettering",
       "bounding": [
-        3140,
+        2780,
         0,
         560,
         1250
